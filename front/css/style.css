@@ -1,0 +1,87 @@
+body {
+    /* font-size: 1.4rem; */
+}
+
+.container {
+    height: 100vh;
+}
+
+input,
+.input-field {
+    text-align: center;
+}
+
+input[type=text] {
+    /* font-size: 1.6rem !important; */
+}
+
+.title{
+    display: inline-block;
+    width: 200px;
+}
+
+.input-field {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.add-card {
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-control {
+    text-align: center;
+}
+
+.btn-control a {
+    width: 100%;
+}
+
+.timer-container {
+    width: 50%;
+    min-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#timer {
+    font-size: 10rem;
+}
+
+#total-timer, 
+#activity {
+    font-size: 2rem;
+}
+
+#cycle,
+#set {
+    font-size: 3rem;
+}
+
+.overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s linear, visibility 0.5s linear;
+  }
+  
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.edit-card {
+    position: absolute;
+}
+
+.run {
+    position: absolute;
+    right: 6em;
+    top: 4rem;
+}
+.run i {
+    color: #ff9800;
+}

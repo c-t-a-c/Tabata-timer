@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabata timer</title>
+    <link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+    <link type="text/css" rel="stylesheet" href="/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+    <div class="container">
+        <form method="post" name="program">    
+            <div class="row">
+                <div class="input-field col s8 offset-s2">
+                    <input type="text" name="title" value="Default">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <span class="title">Prepare</span>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">-</a>
+                    <div class="input-field inline">
+                        <input type="text" name="prepare" value=10 size=2>
+                    </div>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">+</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <span class="title">Work</span>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">-</a>
+                    <div class="input-field inline">
+                        <input type="text" name="work" value=20 size=2>
+                    </div>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">+</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <span class="title">Rest</span>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">-</a>
+                    <div class="input-field inline">
+                        <input type="text" name="rest" value=20 size=2>
+                    </div>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">+</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <span class="title">Cycles</span>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">-</a>
+                    <div class="input-field inline">
+                        <input type="text" name="cycles" value=10 size=2>
+                    </div>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">+</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <span class="title">Sets</span>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">-</a>
+                    <div class="input-field inline">
+                        <input type="text" name="sets" value=1 size=2>
+                    </div>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">+</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <span class="title">Rest between sets</span>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">-</a>
+                    <div class="input-field inline">
+                        <input type="text" name="restbetweensets" value=10 size=2>
+                    </div>
+                    <a class="waves-effect waves-light btn blue-grey darken-1">+</a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s8 offset-s2">
+                    <a class="waves-effect waves-light btn-large orange" id="save-button">
+                        <i class="material-icons right">save</i>Save
+                    </a>
+                    <a href="index.html" class="waves-effect waves-light btn-large">
+                        <i class="material-icons right">cancel</i>Cancel
+                    </a>
+                </div>
+            </div>
+        </form> 
+    </div>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/js/save.js"></script>
+</body>
+</html>

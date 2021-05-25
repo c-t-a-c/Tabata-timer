@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabata timer</title>
+  <link rel="icon" type="image/svg+xml" href="/media/favicon.svg">
+  <link type="text/css" rel="stylesheet" href="/css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="/css/style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="/eel.js"></script>
+</head>
+
+<body>
+  <div class="container overlay valign-wrapper">
+    <div class="timer-container">
+      <div id="total-timer" class="row">0:00</div>
+      <div id="timer" class="row">0</div>
+      <div id="activity" class="row">Prepare</div>
+      <div class="row center-align" class="row">
+        <div class="col s6">
+          Cycle
+          <span id="cycle">1</span>/<span id="cycles">1</span>
+        </div>
+        <div class="col s6">
+          Set
+          <span id="set">1</span>/<span id="sets">1</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 btn-control">
+          <a id="button-pause" class="btn-large waves-effect waves-light orange">Pause</a>
+          <a id="button-start" class="btn-large waves-effect waves-light orange" style="display: none;">Resume</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 btn-control">
+          <a href="index.html" id="button-stop" class="btn-large waves-effect waves-light orange">Stop</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/run.js"></script>
+</body>
+
+</html>
