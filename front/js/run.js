@@ -19,8 +19,8 @@ btnPause.onclick = () => pause = true;
  * @returns array
  */
 function calcTime(data) {
-    let timeSet = (data.prepare + data.work * data.cycles + data.rest) * (data.cycles - 1);
-    let timeTotal = 0;
+    let timeSet = data.prepare + (data.work * data.cycles + data.rest) * data.cycles;
+    let timeTotal;
     if (data.sets > 1) {
         timeTotal = timeSet + data.restbetweensets * (data.sets - 1);
     } else {
@@ -54,18 +54,9 @@ function pauser() {
 
 const timer = ms => new Promise(res => setTimeout(res, ms));
 
-async function playSound() {
-    let audio = new Audio('/media/countdown.wav');
-    audio.play();
-}
 
-async function workSound() {
-    let audio = new Audio('/media/work.mp3');
-    audio.play();
-}
-
-async function restSound() {
-    let audio = new Audio('/media/rest.mp3');
+async function playSound(name){
+    let audio = new Audio('/media/' + name);
     audio.play();
 }
 
@@ -93,11 +84,11 @@ function convertSecondsToTime(seconds) {
 async function countDown(seconds, totalTime) {
     while (seconds > 0) {
         if (pause == true) await pauser();
-        if (seconds == 3) playSound();
+        if (seconds == 3) playSound('countdown.wav');
         await timer(1000);
-        --totalTime
-        timerHTML.textContent = --seconds;
-        totalTimerHTML.textContent = convertSecondsToTime(totalTime);
+        let sec = seconds > 60 ? convertSecondsToTime(--seconds) : --seconds;
+        timerHTML.textContent = sec;
+        totalTimerHTML.textContent = convertSecondsToTime(--totalTime);
     }
     return totalTime;
 }
@@ -138,13 +129,18 @@ async function insertTimerData(data) {
             let rest = await restTime(c, data.cycles, data.rest);
             cycleHTML.textContent = c;
             activityHTML.textContent = 'Work';
-            workSound();
+            playSound('work.mp3');
             totalTime = await countDown(data.work, totalTime);
             activityHTML.textContent = 'Rest';
-            restSound();
+            playSound('rest.mp3');
             totalTime = await countDown(rest, totalTime);
         }
-        totalTime = await countDown(data.restbetweensets, totalTime);
+        if (s < data.sets) {
+            totalTime = await countDown(data.restbetweensets, totalTime);
+        } else {
+            playSound('final.mp3');
+        }
+        
     }
 }
 
