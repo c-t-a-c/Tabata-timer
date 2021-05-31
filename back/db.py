@@ -30,7 +30,7 @@ def get_all_programs() -> list:
 def save_program(prog: dict) -> None:
     with sqlite3.connect(DB_PATH) as conn:
         cur = conn.cursor()
-        if hasattr(prog, 'id'):
+        if hasattr(prog, 'id') and prog.id is not None:
             query = '''UPDATE program
                         SET title=?,
                             prepare=?,
