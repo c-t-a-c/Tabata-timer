@@ -19,14 +19,14 @@ btnPause.onclick = () => pause = true;
  * @returns array
  */
 function calcTime(data) {
-    let timeSet = data.prepare + (data.work * data.cycles + data.rest) * data.cycles;
-    let timeTotal;
+    let timeSet = data.prepare + (data.work * data.cycles) + (data.rest * (data.cycles - 1)) * data.sets;
+    let totalTime;
     if (data.sets > 1) {
-        timeTotal = timeSet + data.restbetweensets * (data.sets - 1);
+        totalTime = timeSet + data.restbetweensets * data.sets;
     } else {
-        timeTotal = timeSet;
+        totalTime = timeSet;
     }
-    return [timeSet, timeTotal]
+    return [timeSet, totalTime]
 }
 
 
@@ -139,6 +139,7 @@ async function insertTimerData(data) {
             totalTime = await countDown(data.restbetweensets, totalTime);
         } else {
             playSound('final.mp3');
+            setTimeout(()=> window.location.href = 'index.html', 4000)
         }
         
     }
